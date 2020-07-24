@@ -1,0 +1,8 @@
+# OSX
+.DS_Store
+# CMake Build
+build
+# build output
+dist
+# vscode
+.vscode
