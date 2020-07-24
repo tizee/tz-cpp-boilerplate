@@ -6,3 +6,5 @@ build
 dist
 # vscode
 .vscode
+# You need to download/git clone it!! 
+googletest

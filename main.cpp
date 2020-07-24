@@ -3,6 +3,6 @@
 
 int main(int argc, char const *argv[])
 {
-    dummy::hello();
+    std::cout << dummy::hello() << std::endl;
     return 0;
 }
