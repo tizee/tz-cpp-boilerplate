@@ -9,6 +9,7 @@ set(CMAKE_CXX_STANDARD 11)
 # specify the C standard
 set(CMAKE_C_STANDARD 99)
 # CLI
+# set(CMAKE_CXX_FLAGS "-lgtest_main")
 set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS})
 # shared
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
@@ -16,7 +17,11 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # unit tests with googletest 
 enable_testing()
-add_subdirectory(googletest)
+# add googletest source code 
+# add_subdirectory("/usr/local/include/gtest" ${CMAKE_BINARY_DIR}/gtest)
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
+# include(GoogleTest)
 
 # source and header
 set(HEADERS
@@ -26,13 +31,14 @@ set(SOURCES
     src/dummy.cpp
 )
 
+
+
 # add library config
-add_library(demo_core 
-STATIC ${HEADERS} ${SOURCES}
-)
+add_library(core ${HEADERS} ${SOURCES})
+
 
 # lib resolution
-target_include_directories(demo_core
+target_include_directories(core
     PUBLIC
     ${PROJECT_SOURCE_DIR}/include
 )
@@ -42,7 +48,7 @@ target_include_directories(demo_core
 add_executable(${This} main.cpp)
 
 # link library
-target_link_libraries(${This} demo_core)
+target_link_libraries(${This} core )
 
 # test cases lib
 add_subdirectory(tests)
