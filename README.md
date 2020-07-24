@@ -1,6 +1,4 @@
 ## tz-cpp-boilerplate
-A dummy cpp boilerplate (just for now).
-
-## TBD
-- CMake configuration
-- Googletest for TDD
+A simple cpp boilerplate.
+- A simple CMake configuration
+- Use Googletest for TDD
