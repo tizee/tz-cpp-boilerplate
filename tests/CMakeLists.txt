@@ -8,7 +8,7 @@ set(SOURCES
 # build tests
 add_executable(demo_test ${SOURCES})
 # add linker flags for compiled googletest libs
-set(CMAKE_LINK_LIBRARY_FLAG "-lgtest -lgtest_main")
+# set(CMAKE_LINK_LIBRARY_FLAG "-lgtest -lgtest_main")
 
 # link libs
 target_link_libraries(demo_test
